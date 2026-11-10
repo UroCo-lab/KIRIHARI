@@ -64,12 +64,12 @@ def header(page, subtitle):
     text(176, 792, 'クイックスタート', 20, True)
     text(35, 765, subtitle, 10.5, color=GRAY)
     c.setStrokeColor(LINE); c.line(35, 749, 560, 749)
-    text(35, 24, 'Windows 10 / 11（64ビット） | 1.8.18', 8.5, color=GRAY)
+    text(35, 24, 'Windows 10 / 11（64ビット） | 1.8.19', 8.5, color=GRAY)
     text(522, 24, f'{page} / 2', 9, color=GRAY, latin=True)
 
 header(1, 'まずは、短い動画を切って文字を重ね、MP4を1本作ってみましょう。')
 step(1, '展開して、初回の準備をする', 711,
-     '本体は KIRIHARI-1.8.18-windows-x64.zip。Source codeは選びません。')
+     '本体は KIRIHARI-1.8.19-windows-x64.zip。Source codeは選びません。')
 picture('setup-window.png', 38, 465, 206)
 text(269, 658, 'ZIPを右クリック → すべて展開 → 展開', 11, True)
 text(269, 637, '「ドキュメント」など、自分のフォルダに置きます。', 10)

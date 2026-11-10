@@ -7,14 +7,14 @@ KIRIHARIは無償利用と自由な改変を認め、利用者が自分の環境
 利用者に渡した候補に機能や動作の変更を加えた場合は、`src/AssemblyInfo.cs` の版番号を進める。本体・ソース・手順書・チェックサムを新しい版でそろえ、候補一式は版ごとのフォルダに保存する。
 
 ```powershell
-.\build.ps1 -Test -VideoTest -WindowTest -Package -AppFolder KIRIHARI-1.8.18
+.\build.ps1 -Test -VideoTest -WindowTest -Package -AppFolder KIRIHARI-1.8.19
 ```
 
-`-Package` は `dist/release-<版>/` に、次の4ファイルを一式で作る。版は `src/AssemblyInfo.cs` の `AssemblyInformationalVersion` から取得する。作成済みの1.8.18候補は `dist/release-1.8.18/` にある。
+`-Package` は `dist/release-<版>/` に、次の4ファイルを一式で作る。版は `src/AssemblyInfo.cs` の `AssemblyInformationalVersion` から取得する。作成済みの1.8.19候補は `dist/release-1.8.19/` にある。
 
-- `KIRIHARI-1.8.18-windows-x64.zip`
-- `KIRIHARI-1.8.18-samples.zip`
-- `KIRIHARI-1.8.18-source.zip`
+- `KIRIHARI-1.8.19-windows-x64.zip`
+- `KIRIHARI-1.8.19-samples.zip`
+- `KIRIHARI-1.8.19-source.zip`
 - `SHA256SUMS.txt`
 
 同じ版の一式があれば、ZIPのチェックサムと、ソース・同梱ファイルの内容を照合する。一致した場合は既存のEXEを含む一式を再利用する。内容の差、欠落、チェックサム不一致があれば既存の一式を残して停止する。旧形式の `dist` 直下に同じ版のZIPがある場合も新規作成を停止する。内容を変更した候補を渡すには、版を進めてからビルドする。
@@ -23,7 +23,7 @@ KIRIHARIは無償利用と自由な改変を認め、利用者が自分の環境
 
 本体ZIPには軽量な合成サンプル動画3本、画像2枚、編集見本を含める。FFmpeg、`data`、`output`、WebView2のキャッシュ、テスト結果は配布対象外。ソースZIPは `build.ps1` に指定した配布ファイル、コンパイル対象のC#、版番号付きのRelease原稿から作る。内部の整理記録や検証用ショートカットは作業環境に保管する。
 
-`docs/RELEASE-NOTES-1.8.18.md` がRelease説明文の原稿。同梱PDFは「クイックスタート」と「詳しい使い方」の2本。手動での初回セットアップは `docs/SETUP.md` に収録する。
+`docs/RELEASE-NOTES-1.8.19.md` がRelease説明文の原稿。同梱PDFは「クイックスタート」と「詳しい使い方」の2本。手動での初回セットアップは `docs/SETUP.md` に収録する。
 
 初回セットアップは、完了記録のない状態から確認する。実際の不足環境で.NET・WebView2のインストール画面、中止、再起動後の再開も確認する。開発PCでは既存のランタイムを削除せず、インストーラーの取得・署名検証までを行う。取得先と固定ハッシュなどの実装は `docs/setup-design.md` に記録する。
 
@@ -35,7 +35,7 @@ KIRIHARIは無償利用と自由な改変を認め、利用者が自分の環境
 4. 対象ソースで再ビルド・テストし、本体ZIPに練習素材と編集見本が入り、ローカルデータが混入していないことを確認する。3つのZIPを `SHA256SUMS.txt` と照合する。
 5. 別PCの書き込み可能なフォルダへZIPを展開し、FFmpeg・WebView2の初回準備から読み込み・短いMP4書き出し・プロジェクト再開までを確認する。現在は別PCでの初回セットアップを未検証。
 6. `.github/workflows/windows.yml` のCIを実行する。CIはランナーの画面を1920×1080に設定して、ビルド・基本テスト・パッケージ生成を行う。公開済みのタグを検証する場合は、mainのワークフローを手動実行し、source_refにタグを指定する。実動画の画面テストとは区別する。
-7. 公開先に対応ソースを配置し、`v1.8.18` タグと配布物の対応を確認する。次の候補で機能や動作を変更した場合は、採番・変更履歴・検証記録を更新し、新しい版の配布物を作る。
+7. 公開先に対応ソースを配置し、`v1.8.19` タグと配布物の対応を確認する。次の候補で機能や動作を変更した場合は、採番・変更履歴・検証記録を更新し、新しい版の配布物を作る。
 8. Release説明文と4ファイルを最終確認し、公開する。CIに自動公開ステップは設けていない。
 
 ## 現時点で残る確認

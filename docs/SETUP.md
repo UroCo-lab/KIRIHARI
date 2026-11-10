@@ -1,4 +1,4 @@
-﻿# はじめに（Windows版 1.8.18）
+﻿# はじめに（Windows版 1.8.19）
 
 展開から最初のMP4書き出しまでを画像で確認できます。 [クイックスタート（PDF・2ページ）](KIRIHARI-クイックスタート.pdf)
 
@@ -11,7 +11,7 @@
 
 ## 最初の1回
 
-1. GitHub Releasesの **KIRIHARI-1.8.18-windows-x64.zip** をダウンロードします。`Source code` や `source.zip` は開発用です。
+1. GitHub Releasesの **KIRIHARI-1.8.19-windows-x64.zip** をダウンロードします。`Source code` や `source.zip` は開発用です。
 2. ZIPを右クリックし、**すべて展開**します。展開した `KIRIHARI` フォルダ全体を、自分が書き込める階層の浅いローカルフォルダに置きます。深い階層では編集用コピーの保存先がWindowsのパス長制限に達する場合があります。
 3. **KIRIHARI.exe** を起動します。拡張子が非表示のPCでは **KIRIHARI** と表示されます。初回は **はじめの準備** が開き、必要な部品を確認します。
 4. 不足する部品がある場合は **必要な部品を準備** を押します。FFmpegの展開・コピー・指定は自動です。.NET FrameworkとWebView2はMicrosoftのインストール画面に従って進めます。PCやアプリの再起動が必要になった場合は、準備画面に表示します。ダウンロードにはインターネット接続が必要です。
@@ -34,14 +34,14 @@ WebView2のエラーが出る場合は、[Microsoft公式のダウンロード�
 SHA-256はPowerShellで確認できます。公開ページの `SHA256SUMS.txt` にある同じファイル名の値と比較します。
 
 ```powershell
-Get-FileHash -Algorithm SHA256 -LiteralPath .\KIRIHARI-1.8.18-windows-x64.zip
+Get-FileHash -Algorithm SHA256 -LiteralPath .\KIRIHARI-1.8.19-windows-x64.zip
 ```
 
 ## サンプル動画を使う場合（任意）
 
 画像の練習には、テロップの **画像** から `samples/lightweight/images` にある透過PNGとJPEGを選びます。
 
-**動画を選んで編集 → 動画を選ぶ** から、同梱の `samples/lightweight` にあるMP4を選べます。猫は12秒、差し込みは7秒、光学ステージは2秒です。起動画面の **前の編集を開く** では同じフォルダの編集見本を選べます。3分の猫は任意の別添え **KIRIHARI-1.8.18-samples.zip** に入っています。
+**動画を選んで編集 → 動画を選ぶ** から、同梱の `samples/lightweight` にあるMP4を選べます。猫は12秒、差し込みは7秒、光学ステージは2秒です。起動画面の **前の編集を開く** では同じフォルダの編集見本を選べます。3分の猫は任意の別添え **KIRIHARI-1.8.19-samples.zip** に入っています。
 
 ## 保存と更新
 

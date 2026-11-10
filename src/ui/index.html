@@ -384,7 +384,7 @@
       <dialog class="kh-dialog kh-context-menu" data-cut-menu aria-label="カットの操作">
         <button type="button" data-menu-keep hidden>ここから残す</button>
         <button type="button" data-menu-times>開始・終了時刻を指定…</button>
-        <button type="button" data-menu-speed>完成動画のカット倍率…</button>
+        <button type="button" data-menu-speed>再生速度…</button>
         <button type="button" data-menu-zoom>このカットを拡大</button>
         <button type="button" data-menu-edit>カット</button>
         <button type="button" data-menu-delete>削除</button>
@@ -407,7 +407,8 @@
         <div class="kh-dialog-actions"><button type="button" data-close>閉じる</button></div>
       </dialog>
       <dialog class="kh-dialog" data-cut-speed-dialog aria-labelledby="kh-cut-speed-title">
-        <strong id="kh-cut-speed-title">完成動画のカット倍率</strong>
+        <strong id="kh-cut-speed-title">再生速度</strong>
+        <small>このカットの速度を、編修後のプレビューと書き出しに反映します。</small>
         <label>倍率（0.1〜16倍）<input type="number" inputmode="decimal" min="0.1" max="16" step="any" required data-cut-speed></label>
         <small data-cut-speed-length role="status"></small>
         <div class="kh-dialog-actions">

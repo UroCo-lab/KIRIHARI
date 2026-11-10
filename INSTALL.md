@@ -4,7 +4,7 @@ GitHubのURLまたは本体ZIPと一緒に、次のように依頼できます�
 
 > このKIRIHARIをWindows PCに導入してください。まずINSTALL.mdを読み、書き込み可能な新しいフォルダへ導入し、初回準備から編集画面が開くところまで確認してください。既存のプロジェクトは残してください。改編するときはAI_EDITING.mdを読んでください。
 
-公開版の本体ZIPは [KIRIHARIのReleases](https://github.com/UroCo-lab/KIRIHARI/releases/latest) から取得できます。
+1.8.19の確認にはローカルの本体ZIPを指定します。公開済みの版は [KIRIHARIのReleases](https://github.com/UroCo-lab/KIRIHARI/releases) から取得できます。
 
 ## 導入を行うAIへの手順
 
@@ -20,10 +20,10 @@ GitHubのURLまたは本体ZIPと一緒に、次のように依頼できます�
 
 ```powershell
 # 本体ZIPを指定。同じフォルダのSHA256SUMS.txtを自動参照します。
-.\install.ps1 -ArchivePath 'C:\Downloads\KIRIHARI-1.8.18-windows-x64.zip'
+.\install.ps1 -ArchivePath 'C:\Downloads\KIRIHARI-1.8.19-windows-x64.zip'
 
 # 展開先を指定する場合。存在しないフォルダを選びます。
-.\install.ps1 -ArchivePath 'C:\Downloads\KIRIHARI-1.8.18-windows-x64.zip' -Destination "$env:LOCALAPPDATA\Programs\KIRIHARI-1.8.18" -Launch
+.\install.ps1 -ArchivePath 'C:\Downloads\KIRIHARI-1.8.19-windows-x64.zip' -Destination "$env:LOCALAPPDATA\Programs\KIRIHARI-1.8.19" -Launch
 ```
 
 GitHubリポジトリURL、`releases/latest`、特定の`releases/tag/バージョン`を `-SourceUrl` に渡すと、Releaseの本体とチェックサムを取得します。直接のHTTPS ZIP URLにも対応します。直接URLの場合は別に確認した64桁の `-ExpectedSha256` を渡してください。Releaseチェックサムは転送・ファイルの一致確認で、配布元自体の信頼性を保証するものではありません。

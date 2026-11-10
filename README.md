@@ -48,9 +48,9 @@
 
 ![プロジェクトZIPに含める素材の一覧と合計容量を表示した保存前確認画面](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/main/docs/screenshots/project-archive.png)
 
-## ダウンロードと起動（1.8.18）
+## ダウンロードと起動（1.8.19・確認用）
 
-[1.8.18のRelease](https://github.com/UroCo-lab/KIRIHARI/releases/tag/v1.8.18) のAssetsから **KIRIHARI-1.8.18-windows-x64.zip** をダウンロードします。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
+1.8.19の確認にはローカルの **KIRIHARI-1.8.19-windows-x64.zip** を使います。公開版は [GitHub Releases](https://github.com/UroCo-lab/KIRIHARI/releases) から入手できます。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
 
 1. 本体ZIPを右クリックして **すべて展開** し、書き込み可能で階層の浅いローカルフォルダで **KIRIHARI.exe** を開きます。EXEと同梱ファイルは同じフォルダに置きます。
 2. 初回の **はじめの準備** で **必要な部品を準備** を押します。不足しているFFmpegなどを取得します。準備が済んだら **KIRIHARIを始める** を押します。
@@ -64,7 +64,7 @@ Windows x64、.NET Framework 4.8以降、Microsoft Edge WebView2 Evergreen Runti
 
 依存部品の手動導入やトラブル対処は [初回セットアップ](docs/SETUP.md) にあります。
 
-本体の **samples/lightweight** には、猫（12秒）、差し込み（7秒）、光学ステージ（2秒）のMP4と「サンプル編集.kirihari」を収録しています。起動画面の **動画を選んで編集** や **前の編集を開く** から選べます。3分の猫を使う場合は任意の **KIRIHARI-1.8.18-samples.zip** を展開してください。
+本体の **samples/lightweight** には、猫（12秒）、差し込み（7秒）、光学ステージ（2秒）のMP4と「サンプル編集.kirihari」を収録しています。起動画面の **動画を選んで編集** や **前の編集を開く** から選べます。3分の猫を使う場合は任意の **KIRIHARI-1.8.19-samples.zip** を展開してください。
 
 ### 軽量の練習動画をダウンロード
 
@@ -76,7 +76,7 @@ Windows x64、.NET Framework 4.8以降、Microsoft Edge WebView2 Evergreen Runti
 ## AIに導入・改変を頼む
 
 - **導入**するには、配布URLまたは本体ZIPと [INSTALL.md](INSTALL.md) をAIに渡します。同梱の `install.ps1` で新しいフォルダへ展開できます。
-- **改変**するには、本体と同じ版の **KIRIHARI-1.8.18-source.zip** を別フォルダへ展開します。展開したソースと [AI_HANDOFF.md](AI_HANDOFF.md) をAIに渡し、変えたいことを伝えます。
+- **改変**するには、本体と同じ版の **KIRIHARI-1.8.19-source.zip** を別フォルダへ展開します。展開したソースと [AI_HANDOFF.md](AI_HANDOFF.md) をAIに渡し、変えたいことを伝えます。
 
 > AI_HANDOFF.mdを読み、ノートPCの小さい画面でプレビューを広く使えるように調整してください。練習素材で動作確認し、修正版を別フォルダに作ってください。
 
@@ -141,7 +141,7 @@ KIRIHARIの自作コード・文書・練習用素材は **MIT License** です�
 
 カットの端をダブルクリック、または右クリックの **開始・終了時刻を指定** から、元動画の時刻で範囲を指定できます。**時・分・秒・ミリ秒** を直接入力するほか、上下ボタンと上下キーで増減できます。**Tab** で次の数値欄へ進み、開始のミリ秒の次は終了の時に移ります。**Shift＋Tab** で前の欄に戻れます。1時間3分15.4秒は「時1・分3・秒15・ミリ秒400」です。開始と終了を逆に入力した場合は、早いほうを開始として適用します。指定するのは1つの素材の範囲内で、素材のフレーム単位に丸めます。
 
-カット帯を右クリックして **完成動画のカット倍率** を選ぶと、そのカットだけを **0.1〜16倍** に変更できます。倍率は編修後のプレビューとMP4に反映され、テロップは映像に追従します。静止は指定した時間で保持します。倍率を変更したプロジェクトは1.8.7以降で開けます。
+カット帯を右クリックして **再生速度…** を選ぶと、そのカットだけを **0.1〜16倍** に変更できます。倍率は編修後のプレビューとMP4に反映され、テロップは映像に追従します。静止は指定した時間で保持します。倍率を変更したプロジェクトは1.8.7以降で開けます。
 
 テロップを編集して **遷移** を開くと、**入る時間／出る時間** をそれぞれ0.01〜60秒で設定できます。短くすると素早く、長くするとゆっくり表示・非表示になります。±ボタンは0.1秒ずつ調整します。短い表示区間では指定比率を保って短縮し、実際の時間を表示します。設定はプレビュー・MP4・保存・Undo/Redoに反映します。旧版の共通秒数も読み込めますが、個別時間の編集には1.2以降を使用してください。
 
@@ -204,7 +204,7 @@ KIRIHARIの自作コード・文書・練習用素材は **MIT License** です�
 
 
     .\build.ps1
-    .\build.ps1 -Test -VideoTest -WindowTest -Package -AppFolder KIRIHARI-1.8.18
+    .\build.ps1 -Test -VideoTest -WindowTest -Package -AppFolder KIRIHARI-1.8.19
 
 Windows x64上のPowerShellと.NET FrameworkのC#コンパイラを使用します。初回ビルドは固定バージョンのMicrosoft WebView2 SDKをNuGetから取得します。 `-VideoTest` と `-WindowTest` はFFmpegとWindows上のWebView2 Runtimeを使います。実行ファイルは `dist/KIRIHARI`、テスト結果は `dist/qa`、`dist/video-qa`、`dist/window-qa` に出力されます。
 
@@ -214,5 +214,5 @@ Windows x64上のPowerShellと.NET FrameworkのC#コンパイラを使用しま�
 - [依存関係と配布条件](THIRD-PARTY.md)
 - [検証記録](docs/verification.md)
 - [公開準備・手順](docs/PUBLISHING.md)
-- [Release説明文](docs/RELEASE-NOTES-1.8.18.md)
+- [Release説明文](docs/RELEASE-NOTES-1.8.19.md)
 - [旧UI試作の設計](docs/design.md)

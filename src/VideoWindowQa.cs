@@ -913,8 +913,12 @@ namespace Kirihari
         async Task SetCutSpeed(string selector, string speed)
         {
             await RightClick(selector);
+            Qa.Check(await Script("document.querySelector('[data-menu-speed]').textContent === '再生速度…'") == "true",
+                "The cut context menu uses the shorter speed label");
             await Script("document.querySelector('[data-menu-speed]').click()");
             await WaitFor("document.querySelector('[data-cut-speed-dialog]').open");
+            Qa.Check(await Script("document.querySelector('#kh-cut-speed-title').textContent === '再生速度'") == "true",
+                "The cut speed dialog uses the same label");
             await Script("document.querySelector('[data-cut-speed]').value = '" + speed + "'; " +
                 "document.querySelector('[data-cut-speed]').dispatchEvent(new Event('input')); " +
                 "document.querySelector('[data-cut-speed-apply]').click()");
