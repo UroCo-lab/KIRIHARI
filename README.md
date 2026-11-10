@@ -4,9 +4,9 @@
 
 無償で利用でき、自分のPCや作業に合わせて自由に改変できる形で配布します。改変は、利用者が普段使っているAIに依頼することを想定しています。
 
-## ダウンロードと起動（1.8.17・公開準備中）
+## ダウンロードと起動（1.8.17）
 
-公開後はGitHubの **Releases** を開き、Assetsから **KIRIHARI-1.8.17-windows-x64.zip** を選びます。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
+GitHubの [Releases](https://github.com/UroCo-lab/KIRIHARI/releases/latest) を開き、Assetsから **KIRIHARI-1.8.17-windows-x64.zip** を選びます。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
 
 1. 本体ZIPを右クリックして **すべて展開** し、書き込み可能で階層の浅いローカルフォルダで **KIRIHARI.exe** を開きます。EXEと同梱ファイルは同じフォルダに置きます。
 2. 初回の **はじめの準備** で **必要な部品を準備** を押します。不足しているFFmpegなどを取得します。準備が済んだら **KIRIHARIを始める** を押します。
