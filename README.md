@@ -2,7 +2,7 @@
 
 **動画を切って、説明を貼る。** 学会発表、授業、研究記録、操作説明のためのWindows向け動画編集アプリです。長い録画から見せたい場面を拾い、映像を止めて文字や矢印を重ね、説明付きのMP4にまとめられます。
 
-[GitHub Releases](https://github.com/UroCo-lab/KIRIHARI/releases) · [クイックスタート（PDF・2ページ）](docs/KIRIHARI-クイックスタート.pdf) · [初回セットアップ](docs/SETUP.md)
+[Windows x64版をダウンロード](https://github.com/UroCo-lab/KIRIHARI/releases/tag/v1.8.18) · [クイックスタート（PDF・2ページ）](docs/KIRIHARI-クイックスタート.pdf) · [初回セットアップ](docs/SETUP.md)
 
 ![猫の練習動画を編集中のKIRIHARI。白いカット帯に1.5秒の静止を追加し、黄色い帯のテロップを静止中に表示している](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/main/docs/screenshots/editor-freeze.png)
 
@@ -48,9 +48,9 @@
 
 ![プロジェクトZIPに含める素材の一覧と合計容量を表示した保存前確認画面](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/main/docs/screenshots/project-archive.png)
 
-## ダウンロードと起動（1.8.18・確認用）
+## ダウンロードと起動（1.8.18）
 
-1.8.18の確認には、ローカルの **KIRIHARI-1.8.18-windows-x64.zip** を使います。公開版は [GitHub Releases](https://github.com/UroCo-lab/KIRIHARI/releases) から入手できます。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
+[1.8.18のRelease](https://github.com/UroCo-lab/KIRIHARI/releases/tag/v1.8.18) のAssetsから **KIRIHARI-1.8.18-windows-x64.zip** をダウンロードします。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
 
 1. 本体ZIPを右クリックして **すべて展開** し、書き込み可能で階層の浅いローカルフォルダで **KIRIHARI.exe** を開きます。EXEと同梱ファイルは同じフォルダに置きます。
 2. 初回の **はじめの準備** で **必要な部品を準備** を押します。不足しているFFmpegなどを取得します。準備が済んだら **KIRIHARIを始める** を押します。
@@ -70,8 +70,8 @@ Windows x64、.NET Framework 4.8以降、Microsoft Edge WebView2 Evergreen Runti
 
 猫とロケットの軽量MP4はGitHubから1本ずつダウンロードできます。
 
-- [猫の練習動画（12秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.17/samples/lightweight/cat-motion-short.mp4)
-- [ロケットの差し込み動画（7秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.17/samples/lightweight/insert-motion.mp4)
+- [猫の練習動画（12秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.18/samples/lightweight/cat-motion-short.mp4)
+- [ロケットの差し込み動画（7秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.18/samples/lightweight/insert-motion.mp4)
 
 ## AIに導入・改変を頼む
 

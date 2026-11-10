@@ -1,8 +1,8 @@
-# KIRIHARI 1.8.18（確認用）
+# KIRIHARI 1.8.18
 
 KIRIHARIは、学会発表や授業、操作説明に使う短い動画を作れるWindows向け編集ソフトです。録画から必要な場面を選び、映像を止めて注釈を出し、音声付きまたは音声なしのMP4に書き出せます。
 
-[画面付きの機能紹介](https://github.com/UroCo-lab/KIRIHARI#編集の流れ)
+[Windows x64 本体ZIP](https://github.com/UroCo-lab/KIRIHARI/releases/download/v1.8.18/KIRIHARI-1.8.18-windows-x64.zip) · [画面付きの機能紹介](https://github.com/UroCo-lab/KIRIHARI#編集の流れ)
 
 ![カット・静止・テロップを同じタイムラインで調整するKIRIHARI 1.8.17](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/main/docs/screenshots/editor-freeze.png)
 
@@ -34,8 +34,8 @@ KIRIHARIは、学会発表や授業、操作説明に使う短い動画を作れ
 
 猫とロケットの軽量MP4はGitHubから1本ずつダウンロードできます。
 
-- [猫の練習動画（12秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.17/samples/lightweight/cat-motion-short.mp4)
-- [ロケットの差し込み動画（7秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.17/samples/lightweight/insert-motion.mp4)
+- [猫の練習動画（12秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.18/samples/lightweight/cat-motion-short.mp4)
+- [ロケットの差し込み動画（7秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.18/samples/lightweight/insert-motion.mp4)
 
 ## AIに改変を頼む
 

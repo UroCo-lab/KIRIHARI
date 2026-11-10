@@ -4,7 +4,7 @@ GitHubのURLまたは本体ZIPと一緒に、次のように依頼できます�
 
 > このKIRIHARIをWindows PCに導入してください。まずINSTALL.mdを読み、書き込み可能な新しいフォルダへ導入し、初回準備から編集画面が開くところまで確認してください。既存のプロジェクトは残してください。改編するときはAI_EDITING.mdを読んでください。
 
-1.8.18の確認にはローカルの本体ZIPを指定します。公開済みの版は [KIRIHARIのReleases](https://github.com/UroCo-lab/KIRIHARI/releases) から取得できます。
+公開版の本体ZIPは [KIRIHARIのReleases](https://github.com/UroCo-lab/KIRIHARI/releases/latest) から取得できます。
 
 ## 導入を行うAIへの手順
 
