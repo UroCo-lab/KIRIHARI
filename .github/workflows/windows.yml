@@ -1,5 +1,13 @@
 name: Windows build and package
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: Branch, tag, or commit to build
+        required: false
+        type: string
 permissions:
   contents: read
 jobs:
@@ -7,9 +15,16 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_ref }}
+      - name: Set screen resolution for WPF tests
+        shell: pwsh
+        run: Set-DisplayResolution -Width 1920 -Height 1080 -Force
       - name: Build, test, and package
         shell: pwsh
-        run: ./build.ps1 -Test -Package
+        run: |
+          git rev-parse HEAD
+          ./build.ps1 -Test -Package
       - uses: actions/upload-artifact@v7
         if: always()
         with:
