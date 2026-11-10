@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "Source": {
+    "Demo": true,
+    "Frames": 900,
+    "Width": 1920,
+    "Height": 1080,
+    "RateNumerator": 30,
+    "RateDenominator": 1
+  },
+  "Clips": [
+    {
+      "Id": "sample-a",
+      "Start": 0,
+      "End": 300,
+      "Origin": 0
+    },
+    {
+      "Id": "sample-b",
+      "Start": 600,
+      "End": 900,
+      "Origin": 600
+    }
+  ],
+  "Effects": [
+    {
+      "Id": "sample-gap",
+      "Kind": "blank",
+      "Start": 450,
+      "Frames": 150,
+      "Color": "#101C20"
+    },
+    {
+      "Id": "sample-speed",
+      "Kind": "speed",
+      "ClipId": "sample-b",
+      "Start": 600,
+      "End": 720,
+      "Rate": 2
+    },
+    {
+      "Id": "sample-hold",
+      "Kind": "freeze",
+      "ClipId": "sample-b",
+      "Start": 780,
+      "Frames": 90
+    }
+  ],
+  "Captions": [
+    {
+      "Id": "reference-text",
+      "Target": "sample-gap",
+      "Kind": "text",
+      "Track": 1,
+      "Layer": 0,
+      "Start": 0,
+      "End": 150,
+      "X": 0.1,
+      "Y": 0.74,
+      "Width": 0.81,
+      "Height": 0.15,
+      "Angle": 0,
+      "Opacity": 1,
+      "FontSize": 38,
+      "Color": "#FFFFFF",
+      "Background": "#C8112423",
+      "Text": "基準点 A を確認"
+    },
+    {
+      "Id": "reference-arrow",
+      "Target": "sample-gap",
+      "Kind": "arrow",
+      "Track": 3,
+      "Layer": 0,
+      "Start": 0,
+      "End": 150,
+      "X": 0.57,
+      "Y": 0.31,
+      "Width": 0.17,
+      "Height": 0.17,
+      "Angle": 18,
+      "Opacity": 1,
+      "FontSize": 38,
+      "Color": "#FFE48D",
+      "Background": "#00000000"
+    },
+    {
+      "Id": "reference-image",
+      "Target": "sample-gap",
+      "Kind": "image",
+      "Track": 2,
+      "Layer": 0,
+      "Start": 0,
+      "End": 150,
+      "X": 0.24,
+      "Y": 0.13,
+      "Width": 0.53,
+      "Height": 0.55,
+      "Angle": 0,
+      "Opacity": 1,
+      "FontSize": 38,
+      "Color": "#FFE48D",
+      "Background": "#00000000",
+      "Image": "optical-reference.png"
+    },
+    {
+      "Id": "reference-hold",
+      "Target": "sample-hold",
+      "Kind": "ellipse",
+      "Track": 2,
+      "Layer": 0,
+      "Start": 30,
+      "End": 90,
+      "X": 0.36,
+      "Y": 0.38,
+      "Width": 0.18,
+      "Height": 0.29,
+      "Angle": 0,
+      "Opacity": 1,
+      "FontSize": 38,
+      "Color": "#FFE48D",
+      "Background": "#00000000"
+    }
+  ],
+  "Tracks": 3,
+  "Sound": false,
+  "AutoSave": false,
+  "Quality": "標準"
+}

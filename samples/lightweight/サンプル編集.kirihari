@@ -1,0 +1,24 @@
+{
+  "format": "kirihari-video-1",
+  "projectName": "サンプル編集",
+  "muted": true,
+  "baseMediaId": "6d1dfe45f12942bdaf4b99d6ab02477f",
+  "sourcePath": "cat-motion-short.mp4",
+  "assets": {
+    "6d1dfe45f12942bdaf4b99d6ab02477f": "cat-motion-short.mp4"
+  },
+  "pool": ["6d1dfe45f12942bdaf4b99d6ab02477f"],
+  "originals": ["6d1dfe45f12942bdaf4b99d6ab02477f"],
+  "ranges": [
+    {
+      "id": "4d3c996ac090463b98e82af0df466dc9",
+      "start": 0,
+      "end": 120,
+      "mediaId": "6d1dfe45f12942bdaf4b99d6ab02477f",
+      "mediaOrigin": 0,
+      "inserted": false
+    }
+  ],
+  "pauses": [],
+  "captions": []
+}

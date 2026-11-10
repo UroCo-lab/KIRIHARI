@@ -1,0 +1,23 @@
+name: Windows build and package
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build, test, and package
+        shell: pwsh
+        run: ./build.ps1 -Test -Package
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: KIRIHARI-Windows
+          path: |
+            dist/release-*/KIRIHARI-*-windows-x64.zip
+            dist/release-*/KIRIHARI-*-samples.zip
+            dist/release-*/KIRIHARI-*-source.zip
+            dist/release-*/SHA256SUMS.txt
+            dist/qa/*.png
+            dist/qa/*.txt
