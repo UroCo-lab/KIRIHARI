@@ -2,7 +2,7 @@
 
 **動画を切って、説明を貼る。** 学会発表、授業、研究記録、操作説明のためのWindows向け動画編集アプリです。長い録画から見せたい場面を拾い、映像を止めて文字や矢印を重ね、説明付きのMP4にまとめられます。
 
-[Windows x64版をダウンロード](https://github.com/UroCo-lab/KIRIHARI/releases/tag/v1.8.17) · [クイックスタート（PDF・2ページ）](docs/KIRIHARI-クイックスタート.pdf) · [初回セットアップ](docs/SETUP.md)
+[GitHub Releases](https://github.com/UroCo-lab/KIRIHARI/releases) · [クイックスタート（PDF・2ページ）](docs/KIRIHARI-クイックスタート.pdf) · [初回セットアップ](docs/SETUP.md)
 
 ![猫の練習動画を編集中のKIRIHARI。白いカット帯に1.5秒の静止を追加し、黄色い帯のテロップを静止中に表示している](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/main/docs/screenshots/editor-freeze.png)
 
@@ -20,7 +20,7 @@
 
 ### 残す場面を選ぶ
 
-タイムラインの **カット** 行で、使いたい範囲をドラッグすると白い帯になります。複数の帯を作ると、**編修後** のプレビューでは残した範囲が順につながります。帯の端で範囲を調整でき、**一部分を除く** では除外前後の完成尺や関連するテロップ・静止への影響を確認できます。元動画を再生しながら **K** を2回押して範囲を指定することもできます。
+タイムラインの **カット** 行で、使いたい範囲をドラッグすると白い帯になります。複数の帯を作ると、**編修後** のプレビューでは残した範囲が順につながります。帯の端で範囲を調整でき、**一部分を除く** では除外前後の完成尺や関連するテロップ・静止への影響を確認できます。元動画を再生しながら **K** を2回押して範囲を指定することもできます。プレビュー速度を変えた直後や、記録の途中で速度を変えた場合もKを使えます。
 
 ![カット行に複数の白い帯を置き、完成動画に残す区間を指定したタイムライン](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/main/docs/images/quick-cut.png)
 
@@ -48,9 +48,9 @@
 
 ![プロジェクトZIPに含める素材の一覧と合計容量を表示した保存前確認画面](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/main/docs/screenshots/project-archive.png)
 
-## ダウンロードと起動（1.8.17）
+## ダウンロードと起動（1.8.18・確認用）
 
-GitHubの [Releases](https://github.com/UroCo-lab/KIRIHARI/releases/latest) を開き、Assetsから **KIRIHARI-1.8.17-windows-x64.zip** を選びます。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
+1.8.18の確認には、ローカルの **KIRIHARI-1.8.18-windows-x64.zip** を使います。公開版は [GitHub Releases](https://github.com/UroCo-lab/KIRIHARI/releases) から入手できます。**samples.zip** は追加の練習素材、**source.zip** とGitHubの **Source code** は開発用です。
 
 1. 本体ZIPを右クリックして **すべて展開** し、書き込み可能で階層の浅いローカルフォルダで **KIRIHARI.exe** を開きます。EXEと同梱ファイルは同じフォルダに置きます。
 2. 初回の **はじめの準備** で **必要な部品を準備** を押します。不足しているFFmpegなどを取得します。準備が済んだら **KIRIHARIを始める** を押します。
@@ -64,12 +64,19 @@ Windows x64、.NET Framework 4.8以降、Microsoft Edge WebView2 Evergreen Runti
 
 依存部品の手動導入やトラブル対処は [初回セットアップ](docs/SETUP.md) にあります。
 
-本体の **samples/lightweight** には、猫（12秒）、差し込み（7秒）、光学ステージ（2秒）のMP4と「サンプル編集.kirihari」を収録しています。起動画面の **動画を選んで編集** や **前の編集を開く** から選べます。3分の猫を使う場合は任意の **KIRIHARI-1.8.17-samples.zip** を展開してください。
+本体の **samples/lightweight** には、猫（12秒）、差し込み（7秒）、光学ステージ（2秒）のMP4と「サンプル編集.kirihari」を収録しています。起動画面の **動画を選んで編集** や **前の編集を開く** から選べます。3分の猫を使う場合は任意の **KIRIHARI-1.8.18-samples.zip** を展開してください。
+
+### 軽量の練習動画をダウンロード
+
+猫とロケットの軽量MP4はGitHubから1本ずつダウンロードできます。
+
+- [猫の練習動画（12秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.17/samples/lightweight/cat-motion-short.mp4)
+- [ロケットの差し込み動画（7秒・MP4）](https://raw.githubusercontent.com/UroCo-lab/KIRIHARI/v1.8.17/samples/lightweight/insert-motion.mp4)
 
 ## AIに導入・改変を頼む
 
 - **導入**するには、配布URLまたは本体ZIPと [INSTALL.md](INSTALL.md) をAIに渡します。同梱の `install.ps1` で新しいフォルダへ展開できます。
-- **改変**するには、本体と同じ版の **KIRIHARI-1.8.17-source.zip** を別フォルダへ展開します。展開したソースと [AI_HANDOFF.md](AI_HANDOFF.md) をAIに渡し、変えたいことを伝えます。
+- **改変**するには、本体と同じ版の **KIRIHARI-1.8.18-source.zip** を別フォルダへ展開します。展開したソースと [AI_HANDOFF.md](AI_HANDOFF.md) をAIに渡し、変えたいことを伝えます。
 
 > AI_HANDOFF.mdを読み、ノートPCの小さい画面でプレビューを広く使えるように調整してください。練習素材で動作確認し、修正版を別フォルダに作ってください。
 
@@ -197,7 +204,7 @@ KIRIHARIの自作コード・文書・練習用素材は **MIT License** です�
 
 
     .\build.ps1
-    .\build.ps1 -Test -VideoTest -WindowTest -Package -AppFolder KIRIHARI-1.8.17
+    .\build.ps1 -Test -VideoTest -WindowTest -Package -AppFolder KIRIHARI-1.8.18
 
 Windows x64上のPowerShellと.NET FrameworkのC#コンパイラを使用します。初回ビルドは固定バージョンのMicrosoft WebView2 SDKをNuGetから取得します。 `-VideoTest` と `-WindowTest` はFFmpegとWindows上のWebView2 Runtimeを使います。実行ファイルは `dist/KIRIHARI`、テスト結果は `dist/qa`、`dist/video-qa`、`dist/window-qa` に出力されます。
 
@@ -207,5 +214,5 @@ Windows x64上のPowerShellと.NET FrameworkのC#コンパイラを使用しま�
 - [依存関係と配布条件](THIRD-PARTY.md)
 - [検証記録](docs/verification.md)
 - [公開準備・手順](docs/PUBLISHING.md)
-- [Release説明文](docs/RELEASE-NOTES-1.8.17.md)
+- [Release説明文](docs/RELEASE-NOTES-1.8.18.md)
 - [旧UI試作の設計](docs/design.md)

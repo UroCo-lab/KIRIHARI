@@ -974,22 +974,30 @@ namespace Kirihari
             await WaitFor("document.querySelector('[data-media]').currentTime > .3 && !document.querySelector('[data-media]').paused");
             Qa.Check(await Script("!document.querySelector('[data-cut-hint]').hidden && document.querySelector('[data-cut-hint]').textContent === 'Kで範囲を記録'") == "true",
                 "Original playback explains the capture key in the cut lane");
+            await Script("document.querySelector('[data-speed]').focus({preventScroll:true})");
+            await PressBrowserKey("ArrowRight", "ArrowRight", 39);
+            Qa.Check(await Script(@"document.activeElement.matches('[data-speed]') &&
+                document.querySelector('[data-media]').playbackRate === 1.5") == "true",
+                "ArrowRight still changes the focused preview-speed slider during playback");
             await Script(@"window.qaFrame = () => Number(document.querySelector('[data-seek-handle]').getAttribute('aria-valuenow'));
-                window.qaCaptureStart = window.qaFrame(); window.qaHotkey('k');
-                window.qaCaptureWidth = parseFloat(document.querySelector('[data-key-cut-draft]').style.width);
-                document.dispatchEvent(new KeyboardEvent('keydown', {key:'k', bubbles:true, repeat:true}));");
-            await WaitFor(@"!document.querySelector('[data-key-cut-draft]').hidden &&
-                parseFloat(document.querySelector('[data-key-cut-draft]').style.width) > window.qaCaptureWidth + 2");
+                window.qaCaptureStart = window.qaFrame(); window.qaHotkey('k', document.activeElement);
+                document.activeElement.dispatchEvent(new KeyboardEvent('keydown', {key:'k', bubbles:true, repeat:true}));");
+            Qa.Check(await Script("!document.querySelector('[data-key-cut-draft]').hidden") == "true",
+                "K starts a range while the preview-speed slider retains focus");
+            await PressBrowserKey("ArrowLeft", "ArrowLeft", 37);
+            await WaitFor(@"document.querySelector('[data-media]').playbackRate === 1 &&
+                !document.querySelector('[data-key-cut-draft]').hidden && window.qaFrame() > window.qaCaptureStart + 6");
             Qa.Check(await Script("window.kirihariQa.snapshot().ranges.length === 0") == "true", "The growing K draft does not create a cut until confirmed");
             Qa.Check(await Script(@"(() => {
                 window.qaCaptureEnd = window.qaFrame();
-                window.qaHotkey('K');
+                window.qaHotkey('K', document.activeElement);
                 const { ranges } = window.kirihariQa.snapshot();
-                return ranges.length === 1 && ranges[0].start === window.qaCaptureStart && ranges[0].end === window.qaCaptureEnd &&
+                return document.activeElement.matches('[data-speed]') &&
+                    ranges.length === 1 && ranges[0].start === window.qaCaptureStart && ranges[0].end === window.qaCaptureEnd &&
                     document.querySelector('[data-key-cut-draft]').hidden &&
                     document.querySelector('[data-source-mode=original]').getAttribute('aria-pressed') === 'true' &&
                     !document.querySelector('[data-media]').paused;
-            })()") == "true", "K saves the two original playhead positions without interrupting original playback");
+            })()") == "true", "K saves both original playhead positions after another speed change without interrupting playback");
             await WaitFor("window.qaFrame() > window.qaCaptureEnd + 6");
             await Script("window.qaHotkey('k')");
             await WaitFor("!document.querySelector('[data-key-cut-draft]').hidden");
@@ -1375,12 +1383,16 @@ namespace Kirihari
             Qa.Check(qaOpenedManual == expected, parent + " opens the bundled " + kind + " PDF");
         }
 
-        async Task PressTimeEditorTab(bool reverse = false)
+        Task PressTimeEditorTab(bool reverse = false)
+        {
+            return PressBrowserKey("Tab", "Tab", 9, reverse ? 8 : 0);
+        }
+
+        async Task PressBrowserKey(string key, string code, int virtualKey, int modifiers = 0)
         {
             foreach (string type in new[] { "keyDown", "keyUp" })
                 await browser.CoreWebView2.CallDevToolsProtocolMethodAsync("Input.dispatchKeyEvent",
-                    MediaTool.Json().Serialize(new { type = type, key = "Tab", code = "Tab", windowsVirtualKeyCode = 9,
-                        modifiers = reverse ? 8 : 0 }));
+                    MediaTool.Json().Serialize(new { type, key, code, windowsVirtualKeyCode = virtualKey, modifiers }));
         }
 
         async Task VerifyHistoryAndTimes()
@@ -2211,6 +2223,34 @@ namespace Kirihari
                 await browser.CoreWebView2.CapturePreviewAsync(CoreWebView2CapturePreviewImageFormat.Png, shot);
             await Mouse("mouseMoved", 4, 4, 0, "none", 0);
             await WaitFor("!document.querySelector('" + speed + "')");
+            await Script(@"(() => {
+                const q = selector => document.querySelector(selector);
+                window.qaCompactSpeed = q('[data-speed]').value;
+                q('[data-source-mode=original]').click();
+                q('[data-action=restart]').click();
+                q('[data-adjustment-toggle=speed]').click();
+            })()");
+            await WaitFor(@"document.activeElement.matches('[data-speed]') &&
+                !document.querySelector('[data-media]').paused && document.querySelector('[data-media]').currentTime > .1");
+            await PressBrowserKey("ArrowRight", "ArrowRight", 39);
+            Qa.Check(await Script(@"document.activeElement.matches('[data-speed]') &&
+                document.querySelector('[data-speed]').valueAsNumber === Number(window.qaCompactSpeed) + 1") == "true",
+                "The compact speed slider keeps focus and changes speed with ArrowRight");
+            await PressBrowserKey("k", "KeyK", 75);
+            Qa.Check(await Script(@"document.activeElement.matches('[data-speed]') &&
+                !document.querySelector('[data-key-cut-draft]').hidden") == "true",
+                "K starts a cut after changing speed in the compact popup");
+            await WaitFor("parseFloat(document.querySelector('[data-key-cut-draft]').style.width) > .1");
+            await PressBrowserKey("k", "KeyK", 75);
+            Qa.Check(await Script(@"document.activeElement.matches('[data-speed]') &&
+                document.querySelector('[data-key-cut-draft]').hidden && !document.querySelector('[data-media]').paused &&
+                window.kirihariQa.snapshot().ranges.length === 1") == "true",
+                "K confirms the cut from the compact speed popup without stopping playback");
+            await PressBrowserKey("ArrowLeft", "ArrowLeft", 37);
+            await PressBrowserKey("Escape", "Escape", 27);
+            await Script(@"document.querySelector('[data-action=play]').click();
+                document.querySelector('[data-undo]').click()");
+            await WaitFor("!document.querySelector('" + speed + "') && !document.querySelectorAll('[data-range]').length");
             Qa.Check(await Script(@"(() => {
                 const q = selector => document.querySelector(selector);
                 const toggle = q('[data-adjustment-toggle=zoom]');
@@ -2779,6 +2819,7 @@ namespace Kirihari
                     "PASS: zoom-aware new caption widths on a six-hour source, a draggable end handle, and a shared color for a pause and its fixed caption.",
                     "PASS: edited length is emphasized in both preview modes and includes pauses.",
                     "PASS: right-click per-cut speed, native playback across differently timed cuts, save/reopen, split inheritance, and MP4 agreement.",
+                    "PASS: K starts and confirms a cut with focus on the normal or compact preview-speed slider, including a second speed change while recording. The slider keeps arrow-key control and playback continues.",
                     "PASS: growing K draft, uninterrupted original playback on confirm/cancel, bookmark notes and markers, manual save/reopen/jump and Undo, and viewport fit for a 2.1-second cut on a six-hour original.",
                     "PASS: K drafts retain the start across backwards and forwards jumps, native seek-handle drag, frame stepping, pause and resume. K and Escape work while the handle is focused.",
                     "PASS: reverse K range preview and exact confirmation while paused, full coverage across existing cuts and original media, retained inserts and annotations, grouped Undo and Redo, and save/reopen.",

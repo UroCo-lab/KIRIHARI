@@ -2736,8 +2736,12 @@
     const key = event.key.length === 1 ? event.key.toUpperCase() : event.key;
     const action = Object.keys(state.hotkeys).find(name => state.hotkeys[name] && state.hotkeys[name] === key);
     const control = event.target.closest?.("input,textarea,select,[contenteditable]:not([contenteditable=false]),[role=slider]");
-    if (control && !(control === seekHandle && keyboardCut && (key === "Escape" || action === "capture"))) return;
-    if (key === "Escape" && keyboardCut) {
+    const cancelCapture = key === "Escape" && !!keyboardCut;
+    const captureOnSpeedSlider = control === speedInput &&
+      (cancelCapture || (action === "capture" && !Object.hasOwn(arrowKeyLabels, key)));
+    if (control && !captureOnSpeedSlider &&
+        !(control === seekHandle && keyboardCut && (cancelCapture || action === "capture"))) return;
+    if (cancelCapture) {
       event.preventDefault();
       cancelKeyboardCut();
       return;

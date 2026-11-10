@@ -2,7 +2,7 @@
 
 KIRIHARIの自作コード・文書・練習用素材には [MIT License](LICENSE) を適用します。著作権表示は `Copyright (c) 2026 UroCo` です。以下の外部部品とアイコンには、それぞれの条件が適用されます。
 
-| 項目 | 1.8.17での扱い |
+| 項目 | 1.8.18での扱い |
 | --- | --- |
 | .NET Framework / WPF / Windows Forms | Windows上の既存ランタイムを使用。 |
 | Microsoft Edge WebView2 | Evergreen Runtimeでローカル編集画面とプレビューを表示。SDK 1.0.2903.40のx64ローダーと.NET用DLLを同梱します。SDKのBSD 3条項型ライセンスと告知は `licenses/WebView2-LICENSE.txt` と `licenses/WebView2-NOTICE.txt` に原文のまま収録します。RuntimeはMicrosoftから取得します。 |
